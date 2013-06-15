@@ -10,8 +10,10 @@
 
 #import "ListDataSource.h"
 
-@interface ListDeckTableViewController : UITableViewController <UITableViewDelegate> {
+@interface ListDeckTableViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate> {
     ListDataSource<UITableViewDataSource> *dataSource;
 }
+
+@property (weak, nonatomic) IBOutlet UITextField *listTextField;
 
 @end

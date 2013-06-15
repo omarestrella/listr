@@ -10,4 +10,9 @@
 
 @interface ListDataSource : NSObject <UITableViewDataSource>
 
++ (ListDataSource *)create;
+- (void)addListWithName:(NSString *)name;
+
+@property (nonatomic, strong) NSUbiquitousKeyValueStore *store;
+
 @end

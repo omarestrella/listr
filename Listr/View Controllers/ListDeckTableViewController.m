@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Omar Estrella. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "ListDeckTableViewController.h"
 
 @interface ListDeckTableViewController ()
@@ -26,14 +28,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    dataSource = [ListDataSource new];
+    dataSource = [ListDataSource create];
     [self.tableView setDataSource:dataSource];
     [self.tableView setDelegate:self];
+    
+    [self.listTextField setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSString *listName = textField.text;
+    if(listName.length) {
+        [dataSource createListWithName:listName];
+    } else {
+        // Show error
+    }
+    
+    return TRUE;
 }
 
 /*
@@ -86,5 +101,4 @@
 }
 
  */
-
 @end

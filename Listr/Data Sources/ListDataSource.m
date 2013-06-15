@@ -10,6 +10,16 @@
 
 @implementation ListDataSource
 
++ (ListDataSource *)create {
+    ListDataSource *instance = [[self alloc] init];
+    instance.store = [NSUbiquitousKeyValueStore defaultStore];
+    return instance;
+}
+
+- (void)addListWithName:(NSString *)name {
+    
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }

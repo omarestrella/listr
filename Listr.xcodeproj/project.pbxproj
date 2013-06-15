@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		411E355C1C484DD5A1527DFA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204E7F9A5EAA4D67988ECA81 /* libPods.a */; };
+		6648BE5D176D081F004A1510 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 6648BE5C176D081F004A1510 /* List.m */; };
+		6648BE60176D082E004A1510 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6648BE5F176D082E004A1510 /* ListItem.m */; };
 		66BCC247176CC9460088A435 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC246176CC9460088A435 /* InitialViewController.m */; };
 		66C4D7E4176CCEF500BDE3A8 /* ListContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7E2176CCEBB00BDE3A8 /* ListContentTableViewController.m */; };
 		66C4D7E8176CD2F200BDE3A8 /* ListDeckTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7E6176CD29F00BDE3A8 /* ListDeckTableViewController.m */; };
@@ -43,6 +45,11 @@
 
 /* Begin PBXFileReference section */
 		204E7F9A5EAA4D67988ECA81 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6648BE5B176D081F004A1510 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = Models/List.h; sourceTree = "<group>"; };
+		6648BE5C176D081F004A1510 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = Models/List.m; sourceTree = "<group>"; };
+		6648BE5E176D082E004A1510 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Models/ListItem.h; sourceTree = "<group>"; };
+		6648BE5F176D082E004A1510 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Models/ListItem.m; sourceTree = "<group>"; };
+		6648BE61176D0B1C004A1510 /* Listr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Listr.entitlements; sourceTree = "<group>"; };
 		66BCC245176CC9460088A435 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = "View Controllers/InitialViewController.h"; sourceTree = "<group>"; };
 		66BCC246176CC9460088A435 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = "View Controllers/InitialViewController.m"; sourceTree = "<group>"; };
 		66C4D7E1176CCEBB00BDE3A8 /* ListContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListContentTableViewController.h; path = "View Controllers/ListContentTableViewController.h"; sourceTree = "<group>"; };
@@ -102,6 +109,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6648BE57176CEB20004A1510 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6648BE5B176D081F004A1510 /* List.h */,
+				6648BE5C176D081F004A1510 /* List.m */,
+				6648BE5E176D082E004A1510 /* ListItem.h */,
+				6648BE5F176D082E004A1510 /* ListItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		66BCC248176CC94F0088A435 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,10 +187,12 @@
 		66EF8061176CC28B006796F1 /* Listr */ = {
 			isa = PBXGroup;
 			children = (
+				6648BE61176D0B1C004A1510 /* Listr.entitlements */,
 				66EF806A176CC28C006796F1 /* AppDelegate.h */,
 				66EF806B176CC28C006796F1 /* AppDelegate.m */,
 				66EF8073176CC28C006796F1 /* MainStoryboard.storyboard */,
 				66EF8062176CC28B006796F1 /* Supporting Files */,
+				6648BE57176CEB20004A1510 /* Models */,
 				66C4D7F0176CE87700BDE3A8 /* Data Sources */,
 				66C4D7E9176CD63F00BDE3A8 /* Views */,
 				66BCC248176CC94F0088A435 /* View Controllers */,
@@ -267,7 +287,7 @@
 						DevelopmentTeam = 5P2L88KTNE;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -366,9 +386,11 @@
 			files = (
 				66C4D7E8176CD2F200BDE3A8 /* ListDeckTableViewController.m in Sources */,
 				66C4D7E4176CCEF500BDE3A8 /* ListContentTableViewController.m in Sources */,
+				6648BE60176D082E004A1510 /* ListItem.m in Sources */,
 				66C4D7EC176CD66800BDE3A8 /* ListCreationCell.m in Sources */,
 				66BCC247176CC9460088A435 /* InitialViewController.m in Sources */,
 				66EF8068176CC28B006796F1 /* main.m in Sources */,
+				6648BE5D176D081F004A1510 /* List.m in Sources */,
 				66EF806C176CC28C006796F1 /* AppDelegate.m in Sources */,
 				66C4D7F3176CE89B00BDE3A8 /* ListDataSource.m in Sources */,
 			);
@@ -480,12 +502,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC2DE574CAAB4C82BD255418 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Listr/Listr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Listr/Listr-Prefix.pch";
 				INFOPLIST_FILE = "Listr/Listr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -494,12 +518,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC2DE574CAAB4C82BD255418 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Listr/Listr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Listr/Listr-Prefix.pch";
 				INFOPLIST_FILE = "Listr/Listr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
