@@ -10,7 +10,10 @@
 
 @interface List : NSObject
 
-@property (nonatomic, strong) NSString *title;
++ (List *)initWithName:(NSString *)name andId:(NSString *)_id;
+
+@property (nonatomic) NSString *_id;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray *listItems;
 
 @end

@@ -11,6 +11,13 @@
 
 @implementation List
 
++ (List *)initWithName:(NSString *)name andId:(NSString *)_id {
+    List *instance = [[self alloc] init];
+    instance._id = _id;
+    instance.name = name;
+    return instance;
+}
+
 - (void)addListItem:(ListItem *)listItem {
     listItem._id = [NSNumber numberWithInt:[self.listItems count]];
     [self.listItems addObject:listItem];

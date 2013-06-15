@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ListDataStore.h"
+
 @interface ListDataSource : NSObject <UITableViewDataSource>
 
 + (ListDataSource *)create;
-- (void)addListWithName:(NSString *)name;
 
-@property (nonatomic, strong) NSUbiquitousKeyValueStore *store;
+@property (nonatomic, strong) ListDataStore *store;
 
 @end

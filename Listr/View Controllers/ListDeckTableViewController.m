@@ -28,8 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    dataSource = [ListDataSource create];
-    [self.tableView setDataSource:dataSource];
+    if(!self.dataSource) {
+        self.dataSource = [ListDataSource create];
+    }
+    
+    store = self.dataSource.store;
+    
+    [self.tableView setDataSource:self.dataSource];
     [self.tableView setDelegate:self];
     
     [self.listTextField setDelegate:self];
@@ -43,7 +48,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSString *listName = textField.text;
     if(listName.length) {
-        [dataSource createListWithName:listName];
+        [store addListWithName:listName];
+        [self.tableView reloadData];
     } else {
         // Show error
     }

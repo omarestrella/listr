@@ -12,12 +12,8 @@
 
 + (ListDataSource *)create {
     ListDataSource *instance = [[self alloc] init];
-    instance.store = [NSUbiquitousKeyValueStore defaultStore];
+    instance.store = [ListDataStore create];
     return instance;
-}
-
-- (void)addListWithName:(NSString *)name {
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -25,7 +21,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.store getListCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -34,7 +30,7 @@
         cell = [UITableViewCell new];
     }
     
-    cell.textLabel.text = @"List Title";
+    cell.textLabel.text = [[self.store getListAtIndex:indexPath.row] name];
     
     return cell;
 }

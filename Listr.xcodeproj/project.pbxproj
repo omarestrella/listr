@@ -10,6 +10,7 @@
 		411E355C1C484DD5A1527DFA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204E7F9A5EAA4D67988ECA81 /* libPods.a */; };
 		6648BE5D176D081F004A1510 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 6648BE5C176D081F004A1510 /* List.m */; };
 		6648BE60176D082E004A1510 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6648BE5F176D082E004A1510 /* ListItem.m */; };
+		6648BE64176D11F2004A1510 /* ListDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6648BE63176D11F2004A1510 /* ListDataStore.m */; };
 		66BCC247176CC9460088A435 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC246176CC9460088A435 /* InitialViewController.m */; };
 		66C4D7E4176CCEF500BDE3A8 /* ListContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7E2176CCEBB00BDE3A8 /* ListContentTableViewController.m */; };
 		66C4D7E8176CD2F200BDE3A8 /* ListDeckTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7E6176CD29F00BDE3A8 /* ListDeckTableViewController.m */; };
@@ -50,6 +51,8 @@
 		6648BE5E176D082E004A1510 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Models/ListItem.h; sourceTree = "<group>"; };
 		6648BE5F176D082E004A1510 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Models/ListItem.m; sourceTree = "<group>"; };
 		6648BE61176D0B1C004A1510 /* Listr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Listr.entitlements; sourceTree = "<group>"; };
+		6648BE62176D11F2004A1510 /* ListDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataStore.h; sourceTree = "<group>"; };
+		6648BE63176D11F2004A1510 /* ListDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDataStore.m; sourceTree = "<group>"; };
 		66BCC245176CC9460088A435 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = "View Controllers/InitialViewController.h"; sourceTree = "<group>"; };
 		66BCC246176CC9460088A435 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = "View Controllers/InitialViewController.m"; sourceTree = "<group>"; };
 		66C4D7E1176CCEBB00BDE3A8 /* ListContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListContentTableViewController.h; path = "View Controllers/ListContentTableViewController.h"; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 			children = (
 				66C4D7F1176CE89B00BDE3A8 /* ListDataSource.h */,
 				66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */,
+				6648BE62176D11F2004A1510 /* ListDataStore.h */,
+				6648BE63176D11F2004A1510 /* ListDataStore.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				66C4D7E8176CD2F200BDE3A8 /* ListDeckTableViewController.m in Sources */,
 				66C4D7E4176CCEF500BDE3A8 /* ListContentTableViewController.m in Sources */,
 				6648BE60176D082E004A1510 /* ListItem.m in Sources */,
+				6648BE64176D11F2004A1510 /* ListDataStore.m in Sources */,
 				66C4D7EC176CD66800BDE3A8 /* ListCreationCell.m in Sources */,
 				66BCC247176CC9460088A435 /* InitialViewController.m in Sources */,
 				66EF8068176CC28B006796F1 /* main.m in Sources */,
