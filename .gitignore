@@ -1,3 +1,6 @@
 .DS_Store
 Listr.xcodeproj/xcuserdata/
 Listr.xcodeproj/project.xcworkspace/
+Listr.xcworkspace/
+Pods/
+Podfile.lock
