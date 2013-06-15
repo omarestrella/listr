@@ -7,7 +7,6 @@
 //
 
 #import "ListDeckTableViewController.h"
-#import "ListCreationCell.h"
 
 @interface ListDeckTableViewController ()
 
@@ -26,42 +25,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dataSource = [ListDataSource new];
+    [self.tableView setDataSource:dataSource];
+    [self.tableView setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
-        return 1;
-    }
-    
-    return 2;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 0) {
-        ListCreationCell *cell = [ListCreationCell create];
-        return cell;
-    } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell"];
-        if(!cell) {
-            cell = [UITableViewCell new];
-        }
-        
-        cell.textLabel.text = @"List Title";
-        
-        return cell;
-    }
-
-    NSLog(@"Could not create table cell!");
-    return nil;
 }
 
 /*

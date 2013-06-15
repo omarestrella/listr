@@ -13,6 +13,7 @@
 		66C4D7E8176CD2F200BDE3A8 /* ListDeckTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7E6176CD29F00BDE3A8 /* ListDeckTableViewController.m */; };
 		66C4D7EC176CD66800BDE3A8 /* ListCreationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7EB176CD66700BDE3A8 /* ListCreationCell.m */; };
 		66C4D7EE176CD6CF00BDE3A8 /* ListCreationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C4D7ED176CD6CF00BDE3A8 /* ListCreationCell.xib */; };
+		66C4D7F3176CE89B00BDE3A8 /* ListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */; };
 		66EF805C176CC28B006796F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF805B176CC28B006796F1 /* UIKit.framework */; };
 		66EF805E176CC28B006796F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF805D176CC28B006796F1 /* Foundation.framework */; };
 		66EF8060176CC28B006796F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF805F176CC28B006796F1 /* CoreGraphics.framework */; };
@@ -51,6 +52,8 @@
 		66C4D7EA176CD66700BDE3A8 /* ListCreationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListCreationCell.h; path = Views/ListCreationCell.h; sourceTree = "<group>"; };
 		66C4D7EB176CD66700BDE3A8 /* ListCreationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListCreationCell.m; path = Views/ListCreationCell.m; sourceTree = "<group>"; };
 		66C4D7ED176CD6CF00BDE3A8 /* ListCreationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCreationCell.xib; sourceTree = "<group>"; };
+		66C4D7F1176CE89B00BDE3A8 /* ListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDataSource.h; path = "Data Sources/ListDataSource.h"; sourceTree = "<group>"; };
+		66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListDataSource.m; path = "Data Sources/ListDataSource.m"; sourceTree = "<group>"; };
 		66EF8058176CC28B006796F1 /* Listr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EF805B176CC28B006796F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		66EF805D176CC28B006796F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,6 +125,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		66C4D7F0176CE87700BDE3A8 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				66C4D7F1176CE89B00BDE3A8 /* ListDataSource.h */,
+				66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */,
+			);
+			name = "Data Sources";
+			sourceTree = "<group>";
+		};
 		66EF804F176CC28B006796F1 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +173,7 @@
 				66EF806B176CC28C006796F1 /* AppDelegate.m */,
 				66EF8073176CC28C006796F1 /* MainStoryboard.storyboard */,
 				66EF8062176CC28B006796F1 /* Supporting Files */,
+				66C4D7F0176CE87700BDE3A8 /* Data Sources */,
 				66C4D7E9176CD63F00BDE3A8 /* Views */,
 				66BCC248176CC94F0088A435 /* View Controllers */,
 			);
@@ -249,6 +262,16 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Omar Estrella";
+				TargetAttributes = {
+					66EF8057176CC28B006796F1 = {
+						DevelopmentTeam = 5P2L88KTNE;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 66EF8053176CC28B006796F1 /* Build configuration list for PBXProject "Listr" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -347,6 +370,7 @@
 				66BCC247176CC9460088A435 /* InitialViewController.m in Sources */,
 				66EF8068176CC28B006796F1 /* main.m in Sources */,
 				66EF806C176CC28C006796F1 /* AppDelegate.m in Sources */,
+				66C4D7F3176CE89B00BDE3A8 /* ListDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC2DE574CAAB4C82BD255418 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Listr/Listr-Prefix.pch";
 				INFOPLIST_FILE = "Listr/Listr-Info.plist";
@@ -469,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC2DE574CAAB4C82BD255418 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Listr/Listr-Prefix.pch";
 				INFOPLIST_FILE = "Listr/Listr-Info.plist";

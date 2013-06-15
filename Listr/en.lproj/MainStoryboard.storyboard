@@ -6,7 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
     </dependencies>
     <scenes>
-        <!--List Deck Table View Controller - Lists-->
+        <!--List Deck Table View Controller-->
         <scene sceneID="4a9-TT-3WR">
             <objects>
                 <tableViewController id="Qld-XN-GvD" customClass="ListDeckTableViewController" sceneMemberID="viewController">
@@ -15,17 +15,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ListCreationCell" id="rem-9a-3bN" customClass="ListCreationCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" textLabel="FLO-lj-BeN" style="IBUITableViewCellStyleDefault" id="1Ib-hm-gkn">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -45,11 +36,19 @@
                         </prototypes>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Lists" id="hd3-7V-Dt8"/>
+                    <navigationItem key="navigationItem" id="hd3-7V-Dt8">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New list..." minimumFontSize="17" id="B2E-4e-gG7">
+                            <rect key="frame" x="15" y="7" width="290" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
+                        </textField>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcu-mf-7x7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="-376"/>
+            <point key="canvasLocation" x="-244" y="-376"/>
         </scene>
         <!--List Content Table View Controller - List Item View-->
         <scene sceneID="OYB-X6-2vj">
@@ -139,9 +138,6 @@
         </scene>
     </scenes>
     <classes>
-        <class className="CTCustomTableViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CTCustomTableViewCell.h"/>
-        </class>
         <class className="IIViewDeckController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IIViewDeckController.h"/>
             <relationships>
@@ -161,12 +157,6 @@
             <relationships>
                 <relationship kind="action" name="revealSidebar:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="viewDeckButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ListCreationCell" superclassName="CTCustomTableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListCreationCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="listTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="ListDeckTableViewController" superclassName="UITableViewController">

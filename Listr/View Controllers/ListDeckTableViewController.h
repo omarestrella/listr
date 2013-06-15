@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListDeckTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+#import "ListDataSource.h"
+
+@interface ListDeckTableViewController : UITableViewController <UITableViewDelegate> {
+    ListDataSource<UITableViewDataSource> *dataSource;
+}
 
 @end
