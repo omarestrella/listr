@@ -24,4 +24,8 @@
     return [List listAtIndex:indexPath.row];
 }
 
+- (NSOrderedSet *)getListItemsForList:(List *)list {
+    return [list listItems];
+}
+
 @end

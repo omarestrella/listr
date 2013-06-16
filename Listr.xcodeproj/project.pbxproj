@@ -11,6 +11,7 @@
 		663F89A3176D70A0005BF8F9 /* List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 663F89A1176D70A0005BF8F9 /* List.xcdatamodeld */; };
 		663F89A6176D74FB005BF8F9 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 663F89A5176D74FB005BF8F9 /* ListItem.m */; };
 		663F89A9176D74FC005BF8F9 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 663F89A8176D74FC005BF8F9 /* List.m */; };
+		663F89AC176E2DBB005BF8F9 /* ListItemDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 663F89AB176E2DBB005BF8F9 /* ListItemDataSource.m */; };
 		6648BE64176D11F2004A1510 /* ListDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6648BE63176D11F2004A1510 /* ListDataStore.m */; };
 		66BCC247176CC9460088A435 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCC246176CC9460088A435 /* InitialViewController.m */; };
 		66C4D7E4176CCEF500BDE3A8 /* ListContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7E2176CCEBB00BDE3A8 /* ListContentTableViewController.m */; };
@@ -52,6 +53,8 @@
 		663F89A5176D74FB005BF8F9 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Models/ListItem.m; sourceTree = "<group>"; };
 		663F89A7176D74FC005BF8F9 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = Models/List.h; sourceTree = "<group>"; };
 		663F89A8176D74FC005BF8F9 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = Models/List.m; sourceTree = "<group>"; };
+		663F89AA176E2DBB005BF8F9 /* ListItemDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItemDataSource.h; sourceTree = "<group>"; };
+		663F89AB176E2DBB005BF8F9 /* ListItemDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItemDataSource.m; sourceTree = "<group>"; };
 		6648BE61176D0B1C004A1510 /* Listr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Listr.entitlements; sourceTree = "<group>"; };
 		6648BE62176D11F2004A1510 /* ListDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataStore.h; sourceTree = "<group>"; };
 		6648BE63176D11F2004A1510 /* ListDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDataStore.m; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */,
 				6648BE62176D11F2004A1510 /* ListDataStore.h */,
 				6648BE63176D11F2004A1510 /* ListDataStore.m */,
+				663F89AA176E2DBB005BF8F9 /* ListItemDataSource.h */,
+				663F89AB176E2DBB005BF8F9 /* ListItemDataSource.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				66C4D7E4176CCEF500BDE3A8 /* ListContentTableViewController.m in Sources */,
 				6648BE64176D11F2004A1510 /* ListDataStore.m in Sources */,
 				66C4D7EC176CD66800BDE3A8 /* ListCreationCell.m in Sources */,
+				663F89AC176E2DBB005BF8F9 /* ListItemDataSource.m in Sources */,
 				66BCC247176CC9460088A435 /* InitialViewController.m in Sources */,
 				66EF8068176CC28B006796F1 /* main.m in Sources */,
 				66EF806C176CC28C006796F1 /* AppDelegate.m in Sources */,

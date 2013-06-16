@@ -44,6 +44,8 @@
 }
 
 - (IBAction)revealSidebar:(UIBarButtonItem *)sender {
+    [self.viewDeckController.view endEditing:YES];
+    
     [self.viewDeckController toggleLeftViewAnimated:YES];
 }
 

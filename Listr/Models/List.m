@@ -23,7 +23,7 @@
 }
 
 + (NSArray *)findAllLists {
-    NSManagedObjectContext *context = [self mainQueueContext];
+    NSManagedObjectContext *context = [super mainQueueContext];
     NSError *error;
     
     NSFetchRequest *request = [NSFetchRequest new];
