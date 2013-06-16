@@ -12,7 +12,7 @@
 
 + (ListDataSource *)create {
     ListDataSource *instance = [[self alloc] init];
-    instance.store = [ListDataStore create];
+    instance.store = [ListDataStore new];
     return instance;
 }
 
@@ -30,7 +30,7 @@
         cell = [UITableViewCell new];
     }
     
-    cell.textLabel.text = [[self.store getListAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[self.store getListAtIndexPath:indexPath] name];
     
     return cell;
 }

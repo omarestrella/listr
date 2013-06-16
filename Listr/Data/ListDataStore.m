@@ -10,48 +10,18 @@
 
 @implementation ListDataStore
 
-@synthesize lists;
-
-+ (ListDataStore *)create {
-    ListDataStore *instance = [[self alloc] init];
-    instance.cloudStore = [NSUbiquitousKeyValueStore defaultStore];
-    
-    if(!instance.lists) {
-        instance.lists = [NSMutableArray arrayWithArray:[instance.cloudStore arrayForKey:@"lists"]];
-    }
-    
-    return instance;
-}
-
-- (void)addListWithName:(NSString *)name {
-    if(name.length > 0) {
-        List *list = [List initWithName:name andId:[self getUUID]];
-        [self.lists addObject:list];
-        [self.cloudStore setArray:self.lists forKey:@"lists"];
-    }
-}
-
-- (List *)getListAtIndex:(NSInteger)index {
-    return [self.lists objectAtIndex:index];
-}
-
-- (List *)getListById:(NSString *)_id {
-    for(id list in self.lists) {
-        List *listObj = (List *)list;
-        if([listObj._id isEqualToString:_id]) {
-            return listObj;
-        }
-    }
-    
-    return nil;
+- (void)createListWithName:(NSString *)name {
+    List *list = [[List alloc] init];
+    list.name = name;
+    [list save];
 }
 
 - (NSInteger)getListCount {
-    return self.lists.count;
+    return [List count];
 }
 
-- (NSString *)getUUID {
-    return [[NSUUID UUID] UUIDString];
+- (List *)getListAtIndexPath:(NSIndexPath *)indexPath {
+    return [List listAtIndex:indexPath.row];
 }
 
 @end

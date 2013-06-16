@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Omar Estrella. All rights reserved.
 //
 
-#import <Parse/Parse.h>
-
 #import "ListDeckTableViewController.h"
 
 @interface ListDeckTableViewController ()
@@ -32,8 +30,6 @@
         self.dataSource = [ListDataSource create];
     }
     
-    store = self.dataSource.store;
-    
     [self.tableView setDataSource:self.dataSource];
     [self.tableView setDelegate:self];
     
@@ -48,10 +44,17 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSString *listName = textField.text;
     if(listName.length) {
-        [store addListWithName:listName];
+        [List initWithName:listName];
+        self.listTextField.text = @"";
         [self.tableView reloadData];
     } else {
-        // Show error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"The list couldn't be saved"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        return FALSE;
     }
     
     return TRUE;

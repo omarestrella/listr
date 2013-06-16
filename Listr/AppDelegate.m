@@ -6,21 +6,12 @@
 //  Copyright (c) 2013 Omar Estrella. All rights reserved.
 //
 
-#import <Parse/Parse.h>
-
 #import "AppDelegate.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(ubiquitousKeyValueStoreDidChange)
-                                                 name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
-                                               object:[NSUbiquitousKeyValueStore defaultStore]];
-    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
-    
     return YES;
 }
 							
@@ -36,7 +27,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -45,6 +35,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
 }
 
 @end

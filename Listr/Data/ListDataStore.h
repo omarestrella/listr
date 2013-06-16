@@ -12,13 +12,8 @@
 
 @interface ListDataStore : NSObject
 
-+ (ListDataStore *)create;
-- (void)addListWithName:(NSString *)name;
-- (List *)getListAtIndex:(NSInteger)index;
-- (List *)getListById:(NSString *)_id;
+- (void)createListWithName:(NSString *)name;
 - (NSInteger)getListCount;
-
-@property (nonatomic, strong) NSUbiquitousKeyValueStore *cloudStore;
-@property (nonatomic, strong) NSMutableArray *lists;
+- (List *)getListAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

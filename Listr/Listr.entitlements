@@ -6,7 +6,5 @@
 	<array>
 		<string>$(TeamIdentifierPrefix)net.bitcreative.Listr</string>
 	</array>
-	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
-	<string>5P2L88KTNE.net.bitcreative.*</string>
 </dict>
 </plist>
