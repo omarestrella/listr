@@ -24,6 +24,11 @@
     return [List listAtIndex:indexPath.row];
 }
 
+- (void)removeListAtIndexPath:(NSIndexPath *)indexPath {
+    List *list = [self getListAtIndexPath:indexPath];
+    [list delete];
+}
+
 - (NSOrderedSet *)getListItemsForList:(List *)list {
     return [list listItems];
 }

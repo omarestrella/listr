@@ -35,4 +35,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.store removeListAtIndexPath:indexPath];
+        [tableView reloadData];
+    }
+}
+
 @end

@@ -15,6 +15,7 @@
 - (void)createListWithName:(NSString *)name;
 - (NSInteger)getListCount;
 - (List *)getListAtIndexPath:(NSIndexPath *)indexPath;
+- (void)removeListAtIndexPath:(NSIndexPath *)indexPath;
 - (NSOrderedSet *)getListItemsForList:(List *)list;
 
 @end

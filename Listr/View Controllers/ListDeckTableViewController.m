@@ -6,7 +6,10 @@
 //  Copyright (c) 2013 Omar Estrella. All rights reserved.
 //
 
+#import <IIViewDeckController.h>
+
 #import "ListDeckTableViewController.h"
+#import "ListContentTableViewController.h"
 
 @interface ListDeckTableViewController ()
 
@@ -34,6 +37,10 @@
     [self.tableView setDelegate:self];
     
     [self.listTextField setDelegate:self];
+}
+
+- (void)setLedgeSize {
+    float rightLedgeSize = [self.viewDeckController rightLedgeSize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,11 +75,27 @@
     NSLog(@"Touch began");
 }
 
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Beginning editing");
+    
+    [super tableView:tableView willBeginEditingRowAtIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Ending editing");
+    
+    [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
+    [tableView endEditing:YES];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.view endEditing:YES];
-    [self.tableView endEditing:YES];
     [self.listTextField endEditing:YES];
+    
+    [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
+        if([controller.centerController isKindOfClass:[ListContentTableViewController class]]) {
+            NSLog(@"Moved to center");
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

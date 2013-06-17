@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSOrderedSet *listItems;
 
 + (List *)initWithName:(NSString *)name;
++ (NSArray *)findAllLists;
 + (NSInteger)count;
 + (List *)listAtIndex:(NSInteger)index;
 
