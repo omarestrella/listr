@@ -19,6 +19,7 @@
 		66C4D7EC176CD66800BDE3A8 /* ListCreationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7EB176CD66700BDE3A8 /* ListCreationCell.m */; };
 		66C4D7EE176CD6CF00BDE3A8 /* ListCreationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C4D7ED176CD6CF00BDE3A8 /* ListCreationCell.xib */; };
 		66C4D7F3176CE89B00BDE3A8 /* ListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */; };
+		66D3550717714D2D00DED141 /* ListDeckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D3550617714D2D00DED141 /* ListDeckView.m */; };
 		66EF805C176CC28B006796F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF805B176CC28B006796F1 /* UIKit.framework */; };
 		66EF805E176CC28B006796F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF805D176CC28B006796F1 /* Foundation.framework */; };
 		66EF8060176CC28B006796F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EF805F176CC28B006796F1 /* CoreGraphics.framework */; };
@@ -69,6 +70,8 @@
 		66C4D7ED176CD6CF00BDE3A8 /* ListCreationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCreationCell.xib; sourceTree = "<group>"; };
 		66C4D7F1176CE89B00BDE3A8 /* ListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataSource.h; sourceTree = "<group>"; };
 		66C4D7F2176CE89B00BDE3A8 /* ListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDataSource.m; sourceTree = "<group>"; };
+		66D3550517714D2D00DED141 /* ListDeckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDeckView.h; path = Views/ListDeckView.h; sourceTree = "<group>"; };
+		66D3550617714D2D00DED141 /* ListDeckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListDeckView.m; path = Views/ListDeckView.m; sourceTree = "<group>"; };
 		66EF8058176CC28B006796F1 /* Listr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EF805B176CC28B006796F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		66EF805D176CC28B006796F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,8 @@
 				66C4D7EA176CD66700BDE3A8 /* ListCreationCell.h */,
 				66C4D7EB176CD66700BDE3A8 /* ListCreationCell.m */,
 				66C4D7ED176CD6CF00BDE3A8 /* ListCreationCell.xib */,
+				66D3550517714D2D00DED141 /* ListDeckView.h */,
+				66D3550617714D2D00DED141 /* ListDeckView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				66EF8068176CC28B006796F1 /* main.m in Sources */,
 				66EF806C176CC28C006796F1 /* AppDelegate.m in Sources */,
 				663F89A9176D74FC005BF8F9 /* List.m in Sources */,
+				66D3550717714D2D00DED141 /* ListDeckView.m in Sources */,
 				663F89A6176D74FB005BF8F9 /* ListItem.m in Sources */,
 				66C4D7F3176CE89B00BDE3A8 /* ListDataSource.m in Sources */,
 			);

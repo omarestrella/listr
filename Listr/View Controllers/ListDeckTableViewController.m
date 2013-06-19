@@ -39,10 +39,6 @@
     [self.listTextField setDelegate:self];
 }
 
-- (void)setLedgeSize {
-    float rightLedgeSize = [self.viewDeckController rightLedgeSize];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
