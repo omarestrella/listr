@@ -81,7 +81,9 @@
     NSLog(@"Ending editing");
     
     [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
-    [tableView endEditing:YES];
+    [tableView setEditing:NO];
+    
+    NSLog(@"%d", [List count]);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
