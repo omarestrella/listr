@@ -26,7 +26,15 @@
 
 - (void)removeListAtIndexPath:(NSIndexPath *)indexPath {
     List *list = [self getListAtIndexPath:indexPath];
+    
+    NSManagedObjectContext *context = [list managedObjectContext];
+    NSError *error;
+    
     [list delete];
+    
+    if(![context save:&error]) {
+        NSLog(@"Error while deleting: %@", [error userInfo]);
+    }
 }
 
 - (NSOrderedSet *)getListItemsForList:(List *)list {
