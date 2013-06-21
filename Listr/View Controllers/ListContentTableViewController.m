@@ -73,6 +73,7 @@
     
     if(listItemContent) {
         ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
+        self.itemTextField.text = @"";
         [listItem save];
         
         int index = [self.list.listItems count] - 1;
@@ -81,6 +82,10 @@
     }
     
     return TRUE;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.itemTextField endEditing:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -63,14 +63,6 @@
     return TRUE;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"Touch ended");
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"Touch began");
-}
-
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
     [tableView setEditing:NO];
