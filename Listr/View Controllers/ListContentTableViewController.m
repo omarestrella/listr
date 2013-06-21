@@ -74,7 +74,10 @@
     if(listItemContent) {
         ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
         [listItem save];
-        [self.tableView reloadData];
+        
+        int index = [self.list.listItems count] - 1;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     
     return TRUE;
