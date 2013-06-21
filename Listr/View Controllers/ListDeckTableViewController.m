@@ -71,19 +71,9 @@
     NSLog(@"Touch began");
 }
 
-- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Beginning editing");
-    
-    [super tableView:tableView willBeginEditingRowAtIndexPath:indexPath];
-}
-
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Ending editing");
-    
     [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
     [tableView setEditing:NO];
-    
-    NSLog(@"%d", [List count]);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

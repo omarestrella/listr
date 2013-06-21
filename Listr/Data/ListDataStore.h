@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "List.h"
+#import "ListItem.h"
 
 @interface ListDataStore : NSObject
 
@@ -17,6 +18,7 @@
 - (NSInteger)getListCount;
 - (List *)getListAtIndexPath:(NSIndexPath *)indexPath;
 - (void)removeListAtIndexPath:(NSIndexPath *)indexPath;
+- (void)removeListItemAtIndexPath:(NSIndexPath *)indexPath fromList:(List *)list ;
 - (NSOrderedSet *)getListItemsForList:(List *)list;
 
 @end

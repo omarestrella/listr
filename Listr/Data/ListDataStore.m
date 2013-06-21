@@ -37,8 +37,25 @@
     [list delete];
     
     if(![context save:&error]) {
-        NSLog(@"Error while deleting: %@", [error userInfo]);
+        NSLog(@"Error while deleting list: %@", [error userInfo]);
     }
+}
+
+- (void)removeListItemAtIndexPath:(NSIndexPath *)indexPath fromList:(List *)list {
+    ListItem *listItem = [self getListItemAdIndexPath:indexPath fromList:list];
+    
+    NSManagedObjectContext *context = [listItem managedObjectContext];
+    NSError *error;
+    
+    [listItem delete];
+    
+    if(![context save:&error]) {
+        NSLog(@"Error while deleting list item: %@", [error userInfo]);
+    }
+}
+
+- (ListItem *)getListItemAdIndexPath:(NSIndexPath *)indexPath fromList:(List *)list {
+    return [[list listItems] objectAtIndex:indexPath.row];
 }
 
 - (NSOrderedSet *)getListItemsForList:(List *)list {

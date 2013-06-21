@@ -38,6 +38,7 @@
     [self.viewDeckController setDelegate:self];
     [self.itemTextField setDelegate:self];
     
+    [self.tableView setDelegate:self];
     [self.tableView setDataSource:self.dataSource];
 }
 
@@ -77,6 +78,11 @@
     }
     
     return TRUE;
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
+    [tableView setEditing:NO];
 }
 
 - (IBAction)revealSidebar:(UIBarButtonItem *)sender {
