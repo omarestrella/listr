@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <IIViewDeckController.h>
 
-#import "IIViewDeckController.h"
+#import "List.h"
 
-@interface ListContentTableViewController : UITableViewController
+@interface ListContentTableViewController : UITableViewController <IIViewDeckControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *viewDeckButton;
+@property (strong, nonatomic) List *list;
 
 - (IBAction)revealSidebar:(UIBarButtonItem *)sender;
 

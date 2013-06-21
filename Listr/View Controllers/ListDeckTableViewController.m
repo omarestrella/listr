@@ -90,8 +90,11 @@
     [self.listTextField endEditing:YES];
     
     [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
-        if([controller.centerController isKindOfClass:[ListContentTableViewController class]]) {
-            NSLog(@"Moved to center");
+        if([controller.centerController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navController = (UINavigationController *)controller.centerController;
+            ListContentTableViewController *contentController = [navController.childViewControllers objectAtIndex:0];
+            contentController.list = [List listAtIndex:indexPath.row];
+            NSLog(@"Clicked list, moving to center");
         }
     }];
 }
