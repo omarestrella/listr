@@ -10,10 +10,14 @@
 #import <CoreData/CoreData.h>
 #import <SSManagedObject.h>
 
+#import "List.h"
+
 @interface ListItem : SSManagedObject
 
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * dateCreated;
 @property (nonatomic, retain) NSManagedObject *list;
+
++ (ListItem *)initWithContent:(NSString *)content andList:(List *)list;
 
 @end

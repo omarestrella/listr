@@ -9,6 +9,7 @@
 #import "FontAwesomeKit.h"
 
 #import "ListContentTableViewController.h"
+#import "ListItem.h"
 
 @interface ListContentTableViewController ()
 
@@ -28,12 +29,15 @@
     [super viewDidLoad];
     
     [self setButtonIcon];
+    [self updateTextFieldView];
     
     if(!self.dataSource) {
         self.dataSource = [ListItemDataSource create];
     }
     
     [self.viewDeckController setDelegate:self];
+    [self.itemTextField setDelegate:self];
+    
     [self.tableView setDataSource:self.dataSource];
 }
 
@@ -49,6 +53,30 @@
                                              fontSize:24
                                            attributes:nil];
     self.viewDeckButton.image = listImage;
+}
+
+- (void)updateTextFieldView {
+    float padding = [[UITableViewCell new] indentationWidth];
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, padding, 20)];
+    self.itemTextField.leftView = paddingView;
+    self.itemTextField.leftViewMode = UITextFieldViewModeAlways;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSString *listItemContent = textField.text;
+    
+    if(!self.list) {
+        NSLog(@"No list to be found");
+        return FALSE;
+    }
+    
+    if(listItemContent) {
+        ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
+        [listItem save];
+        [self.tableView reloadData];
+    }
+    
+    return TRUE;
 }
 
 - (IBAction)revealSidebar:(UIBarButtonItem *)sender {

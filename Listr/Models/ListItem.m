@@ -14,4 +14,12 @@
 @dynamic dateCreated;
 @dynamic list;
 
++ (ListItem *)initWithContent:(NSString *)content andList:(List *)list {
+    ListItem *instance = [[ListItem alloc] init];
+    instance.content = content;
+    instance.dateCreated = [NSDate date];
+    instance.list = list;
+    return instance;
+}
+
 @end

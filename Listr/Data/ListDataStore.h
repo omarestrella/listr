@@ -13,6 +13,7 @@
 @interface ListDataStore : NSObject
 
 - (void)createListWithName:(NSString *)name;
+- (void)createListItemWithContent:(NSString *)content forList:(List *)list;
 - (NSInteger)getListCount;
 - (List *)getListAtIndexPath:(NSIndexPath *)indexPath;
 - (void)removeListAtIndexPath:(NSIndexPath *)indexPath;

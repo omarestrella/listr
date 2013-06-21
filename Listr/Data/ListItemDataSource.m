@@ -8,6 +8,8 @@
 
 #import "ListItemDataSource.h"
 
+#import "ListItem.h"
+
 @implementation ListItemDataSource
 
 + (ListItemDataSource *)create {
@@ -34,7 +36,8 @@
         cell = [UITableViewCell new];
     }
     
-    cell.textLabel.text = [[self.store getListAtIndexPath:indexPath] name];
+    ListItem *listItem = [[self.list listItems] objectAtIndex:indexPath.row];
+    cell.textLabel.text = listItem.content;
     
     return cell;
 }

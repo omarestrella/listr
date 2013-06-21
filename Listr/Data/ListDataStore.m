@@ -16,6 +16,10 @@
     [list save];
 }
 
+- (void)createListItemWithContent:(NSString *)content forList:(List *)list {
+    
+}
+
 - (NSInteger)getListCount {
     return [List count];
 }

@@ -12,9 +12,10 @@
 #import "List.h"
 #import "ListItemDataSource.h"
 
-@interface ListContentTableViewController : UITableViewController <IIViewDeckControllerDelegate>
+@interface ListContentTableViewController : UITableViewController <UITextFieldDelegate, IIViewDeckControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *viewDeckButton;
+@property (weak, nonatomic) IBOutlet UITextField *itemTextField;
 @property (strong, nonatomic) List *list;
 @property (strong, nonatomic) ListItemDataSource *dataSource;
 
