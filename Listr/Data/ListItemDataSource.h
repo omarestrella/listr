@@ -13,7 +13,9 @@
 @interface ListItemDataSource : NSObject <UITableViewDataSource>
 
 + (ListItemDataSource *)create;
+- (void)setCurrentList:(List *)list;
 
 @property (nonatomic, strong) ListDataStore *store;
+@property (nonatomic, strong) List *list;
 
 @end

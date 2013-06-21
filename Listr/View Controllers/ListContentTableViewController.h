@@ -10,11 +10,13 @@
 #import <IIViewDeckController.h>
 
 #import "List.h"
+#import "ListItemDataSource.h"
 
 @interface ListContentTableViewController : UITableViewController <IIViewDeckControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *viewDeckButton;
 @property (strong, nonatomic) List *list;
+@property (strong, nonatomic) ListItemDataSource *dataSource;
 
 - (IBAction)revealSidebar:(UIBarButtonItem *)sender;
 
