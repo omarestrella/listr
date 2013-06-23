@@ -19,6 +19,8 @@
 @property (strong, nonatomic) List *list;
 @property (strong, nonatomic) ListItemDataSource *dataSource;
 
+- (void)updateListDisplay;
+
 - (IBAction)revealSidebar:(UIBarButtonItem *)sender;
 
 @end

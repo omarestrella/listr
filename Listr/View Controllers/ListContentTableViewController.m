@@ -63,6 +63,14 @@
     self.itemTextField.leftViewMode = UITextFieldViewModeAlways;
 }
 
+- (void)updateListDisplay {
+    if(self.list) {
+        [self.navigationItem setTitle:self.list.name];
+        [self.dataSource setList:self.list];
+        [self.tableView reloadData];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSString *listItemContent = textField.text;
     
@@ -97,14 +105,6 @@
     [self.viewDeckController.view endEditing:YES];
     
     [self.viewDeckController toggleLeftViewAnimated:YES];
-}
-
-- (void)viewDeckController:(IIViewDeckController *)viewDeckController didBounceViewSide:(IIViewDeckSide)viewDeckSide closingController:(UIViewController *)closingController {
-    if(self.list) {
-        [self.navigationItem setTitle:self.list.name];
-        [self.dataSource setList:self.list];
-        [self.tableView reloadData];
-    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -71,14 +71,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.listTextField endEditing:YES];
     
-    [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
+    [self.viewDeckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
         if([controller.centerController isKindOfClass:[UINavigationController class]]) {
-            UINavigationController *navController = (UINavigationController *)controller.centerController;
-            ListContentTableViewController *contentController = [navController.childViewControllers objectAtIndex:0];
-            contentController.list = [List listAtIndex:indexPath.row];
-            NSLog(@"Clicked list, moving to center");
+            NSLog(@"Moved to center");
         }
     }];
+    
+    if([self.viewDeckController.centerController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navController = (UINavigationController *)self.viewDeckController.centerController;
+        ListContentTableViewController *contentController = [navController.childViewControllers objectAtIndex:0];
+        contentController.list = [List listAtIndex:indexPath.row];
+        [contentController updateListDisplay];
+    }
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
