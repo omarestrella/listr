@@ -63,7 +63,6 @@
     pullListTextField.font = [UIFont systemFontOfSize:18.0];
     pullListTextField.placeholder = @"New list item...";
     pullListTextField.textAlignment = NSTextAlignmentLeft;
-    pullListTextField.borderStyle = UITextBorderStyleLine;
     
     [pullListView addSubview:pullListTextField];
     [self.tableView addSubview:pullListView];
@@ -109,30 +108,33 @@
     }
 }
 
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-//    NSString *listItemContent = textField.text;
-//    
-//    if(!self.list) {
-//        NSLog(@"No list to be found");
-//        return FALSE;
-//    }
-//    
-//    if(listItemContent) {
-//        ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
-//        self.itemTextField.text = @"";
-//        [listItem save];
-//        
-//        int index = [self.list.listItems count] - 1;
-//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-//        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }
-//    
-//    return TRUE;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.itemTextField endEditing:YES];
-//}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSString *listItemContent = textField.text;
+    
+    if(!self.list) {
+        NSLog(@"No list to be found");
+        return FALSE;
+    }
+    
+    if(listItemContent) {
+        ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
+        textField.text = @"";
+        [listItem save];
+        
+        int index = [self.list.listItems count] - 1;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        self.tableView.contentInset = UIEdgeInsetsZero;
+    }
+    
+    return TRUE;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    [pullListTextField endEditing:YES];
+}
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
