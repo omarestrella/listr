@@ -90,7 +90,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(scrollView.contentOffset.y > -cell_height) {
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.3f animations:^{
             self.tableView.contentInset = UIEdgeInsetsZero;
             [pullListTextField resignFirstResponder];
         }];
@@ -101,7 +101,7 @@
     isDragging = NO;
     
     if(scrollView.contentOffset.y <= -32.0) {
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.3f animations:^{
             self.tableView.contentInset = UIEdgeInsetsMake(cell_height, 0, 0, 0);
             [pullListTextField becomeFirstResponder];
         }];
