@@ -12,10 +12,19 @@
 #import "List.h"
 #import "ListItemDataSource.h"
 
-@interface ListContentTableViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate, IIViewDeckControllerDelegate>
+@interface ListContentTableViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate, IIViewDeckControllerDelegate> {
+    List *list;
+    ListItemDataSource *dataSource;
+    UIView *pullListView;
+    UITextField *pullListTextField;
+    BOOL isDragging;
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *viewDeckButton;
-@property (weak, nonatomic) IBOutlet UITextField *itemTextField;
+
+@property (strong, nonatomic) UIView *pullListView;
+@property (strong, nonatomic) UITextField *pullListTextField;
+
 @property (strong, nonatomic) List *list;
 @property (strong, nonatomic) ListItemDataSource *dataSource;
 

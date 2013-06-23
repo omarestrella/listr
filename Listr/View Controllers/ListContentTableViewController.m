@@ -11,11 +11,11 @@
 #import "ListContentTableViewController.h"
 #import "ListItem.h"
 
-@interface ListContentTableViewController ()
-
-@end
+#define cell_height 36.0f
 
 @implementation ListContentTableViewController
+
+@synthesize dataSource, list, pullListView, pullListTextField;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -29,23 +29,44 @@
     [super viewDidLoad];
     
     [self setButtonIcon];
-    [self updateTextFieldView];
+    [self createPullHeader];
     
-    if(!self.dataSource) {
-        self.dataSource = [ListItemDataSource create];
+    if(!dataSource) {
+        dataSource = [ListItemDataSource create];
     }
     
     [self.viewDeckController setDelegate:self];
-    [self.itemTextField setDelegate:self];
     
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self.dataSource];
+    
+    [pullListTextField setDelegate:self];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createPullHeader {
+    float width = self.tableView.frame.size.width;
+    
+    // Theres got to be a better way to do this...
+    float padding = [[UITableViewCell new] indentationWidth];
+    
+    pullListView = [[UIView alloc] initWithFrame:CGRectMake(0, 0 - cell_height , width, cell_height)];
+    pullListView.backgroundColor = [UIColor clearColor];
+    
+    pullListTextField = [[UITextField alloc] initWithFrame:CGRectMake(padding, 0, width - padding, cell_height)];
+    pullListTextField.textColor = [UIColor lightGrayColor];
+    pullListTextField.font = [UIFont systemFontOfSize:18.0];
+    pullListTextField.placeholder = @"New list item...";
+    pullListTextField.textAlignment = NSTextAlignmentLeft;
+    pullListTextField.borderStyle = UITextBorderStyleLine;
+    
+    [pullListView addSubview:pullListTextField];
+    [self.tableView addSubview:pullListView];
 }
 
 - (void)setButtonIcon {
@@ -56,13 +77,6 @@
     self.viewDeckButton.image = listImage;
 }
 
-- (void)updateTextFieldView {
-    float padding = [[UITableViewCell new] indentationWidth];
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, padding, 20)];
-    self.itemTextField.leftView = paddingView;
-    self.itemTextField.leftViewMode = UITextFieldViewModeAlways;
-}
-
 - (void)updateListDisplay {
     if(self.list) {
         [self.navigationItem setTitle:self.list.name];
@@ -71,30 +85,54 @@
     }
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSString *listItemContent = textField.text;
-    
-    if(!self.list) {
-        NSLog(@"No list to be found");
-        return FALSE;
-    }
-    
-    if(listItemContent) {
-        ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
-        self.itemTextField.text = @"";
-        [listItem save];
-        
-        int index = [self.list.listItems count] - 1;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-    
-    return TRUE;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    isDragging = YES;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.itemTextField endEditing:YES];
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(scrollView.contentOffset.y > -cell_height) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tableView.contentInset = UIEdgeInsetsZero;
+            [pullListTextField resignFirstResponder];
+        }];
+    }
 }
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    isDragging = NO;
+    
+    if(scrollView.contentOffset.y <= -32.0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tableView.contentInset = UIEdgeInsetsMake(cell_height, 0, 0, 0);
+            [pullListTextField becomeFirstResponder];
+        }];
+    }
+}
+
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//    NSString *listItemContent = textField.text;
+//    
+//    if(!self.list) {
+//        NSLog(@"No list to be found");
+//        return FALSE;
+//    }
+//    
+//    if(listItemContent) {
+//        ListItem *listItem = [ListItem initWithContent:listItemContent andList:self.list];
+//        self.itemTextField.text = @"";
+//        [listItem save];
+//        
+//        int index = [self.list.listItems count] - 1;
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+//        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }
+//    
+//    return TRUE;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [self.itemTextField endEditing:YES];
+//}
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didEndEditingRowAtIndexPath:indexPath];
